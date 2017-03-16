@@ -7,8 +7,11 @@ with Symfony Guard Security Component to authenticate users via apikey.
 Configuration
 --------------
 
+First of all clone the repository with git clone. After that run composer install
+to install all of the dependencies for you.
+
 To start implementing your RESTful API just reconfigure the database parameters in
-parameters.yml and reconfigure access_control in security.yml.
+parameters.yml.
 
 Than apply migrations and enter users manually in database or implement additional users
 registration and apikey generation controller.
