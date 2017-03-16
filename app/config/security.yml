@@ -1,0 +1,30 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+
+    # security provider is symfony_rest_api(database_name) and entity AppBundle:User(entity_name) with property apikey(name_of_field)
+    providers:
+        symfony_rest_api:
+            entity:
+                class: AppBundle:User
+                property: apikey
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            logout: ~
+            # service for authentication declared in services.yml
+            guard:
+                authenticators:
+                    - app.token_authenticator
+            stateless: true
+
+    access_control:
+        # require ROLE_USER for /api*
+        - { path: ^/api, roles: ROLE_USER }
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }

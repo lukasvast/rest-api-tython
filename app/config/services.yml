@@ -1,0 +1,6 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+services:
+    # service for authentication is TokenAuthenticator class
+    app.token_authenticator:
+        class: AppBundle\Security\TokenAuthenticator
